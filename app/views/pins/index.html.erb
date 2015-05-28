@@ -1,0 +1,11 @@
+<h1>this is the index placeholder <h1>
+<h4> <%= link_to 'New Pin', new_pin_path %> </h4>
+
+
+<h2>
+<!-- list out all PINS -->
+	<% @pins.each do |pin| %>
+	<%= link_to pin.title, pin %>
+	<% end %>
+</h2>
+
