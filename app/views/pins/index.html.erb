@@ -4,6 +4,7 @@
 <h2>
 <!-- list out all PINS -->
 	<% @pins.each do |pin| %>
+	<%= link_to (image_tag pin.image.url(:medium)) %><br>
 	<%= link_to pin.title, pin %> <br>
 	<% end %>
 </h2>

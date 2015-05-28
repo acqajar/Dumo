@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# add paperlcip for images
+gem 'paperclip', '~> 4.2.1'
+# devise sign_up/sign_in forms
 gem 'devise'
 # simple_form
 gem 'simple_form', '~> 3.1.0'
