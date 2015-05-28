@@ -6,10 +6,12 @@ class PinsController < ApplicationController
 	end
 
 	def index
+		#put newest first
 		@pins = Pin.all.order("created_at DESC")	
 	end
 
 	def create
+		#have each pin assigned to current_user
 		@pin = current_user.pins.build(pin_params)
 			if @pin.save
 				redirect_to @pin, notice: "Successfully created new pin!"
@@ -21,6 +23,7 @@ class PinsController < ApplicationController
 
 
 	def new
+		#have each pin assigned to current_user
 		@pin = current_user.pins.build
 	end
 
