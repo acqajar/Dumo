@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+#ability to like photos,posts,etc
 gem 'acts_as_votable', '~> 0.10.0'
-
+#shifting of images effect with screen resize
 gem 'masonry-rails', '~> 0.2.4'
 # add paperlcip for images
 gem 'paperclip', '~> 4.2.1'
