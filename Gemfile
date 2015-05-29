@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'masonry-rails', '~> 0.2.4'
 # add paperlcip for images
 gem 'paperclip', '~> 4.2.1'
 # devise sign_up/sign_in forms

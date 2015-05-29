@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Pinboard </title>
+  <title> Memento </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
 	<nav class = "nav navbar navbar-default">
 		<div class = "container">
 			<div class = "navbar-header">
-			<div class = "navbar-brand"> <%= link_to "Pin Board", root_path %></div>
+			<div class = "navbar-brand"> <%= link_to "Memento", root_path %></div>
 			</div>
 
 				<% if user_signed_in? %>
@@ -21,7 +21,7 @@
 						<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 				<% else %>
 					<ul class = "nav navbar-nav navbar-right">
-						<li> <%= link_to "Sign Up", new_user_registration_path %> </li>
+						<li> <%= link_to "Sign Up", new_user_registration_path %></li>
 						<li> <%= link_to "Sign In", new_user_session_path %> </li>
 					</ul>
 				<% end %>
@@ -29,13 +29,15 @@
 		</div>
 	</nav>
 
+
 	<div class = "container">
 	 <% flash.each do |name, msg| %>
 		<%= content_tag(:div, msg, class: "alert alert-info") %>
-	</div>
      <% end %>
+ </div>
 
 <%= yield %>
+
 
 </body>
 </html>

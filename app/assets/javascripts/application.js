@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/jquery.masonry
+//= require masonry/box-maker
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
