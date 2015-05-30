@@ -11,21 +11,20 @@
 	<nav class = "nav navbar navbar-default">
 		<div class = "container">
 			<div class = "navbar-header">
-			<div class = "navbar-brand"> <%= link_to "Memento", root_path %></div>
+				<div class = "navbar-brand"> <%= link_to "Memento", pins_path %></div>
 			</div>
 
-				<% if user_signed_in? %>
-					<ul class = "nav navbar-nav navbar-right">
-						<li> <%= link_to "New Pin", new_pin_path %> </li>
-						<li> <%= link_to "Account Settings", edit_user_registration_path %> </li>
-						<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-				<% else %>
-					<ul class = "nav navbar-nav navbar-right">
-						<li> <%= link_to "Sign Up", new_user_registration_path %></li>
-						<li> <%= link_to "Sign In", new_user_session_path %> </li>
-					</ul>
-				<% end %>
-			</div>
+					<% if user_signed_in? %>
+						<ul class = "nav navbar-nav navbar-right">
+							<li> <%= link_to "New Pin", new_pin_path %> </li>
+							<li> <%= link_to "Account Settings", edit_user_registration_path %> </li>
+							<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+					<% else %>
+						<ul class = "nav navbar-nav navbar-right">
+							<li> <%= link_to "Sign Up", new_user_registration_path %></li>
+							<li> <%= link_to "Sign In", new_user_session_path %> </li>
+						</ul>
+					<% end %>
 		</div>
 	</nav>
 
@@ -34,7 +33,8 @@
 	 <% flash.each do |name, msg| %>
 		<%= content_tag(:div, msg, class: "alert alert-info") %>
      <% end %>
- </div>
+ 	</div>
+
 
 <%= yield %>
 
