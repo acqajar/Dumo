@@ -29,8 +29,8 @@ config.secret_key = '0d887bd1d12f5512ca9c346f24c0b5e0f57b2f9c2d03c5da28bd2da1f73
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
-
+  config.authentication_keys = [ :login ]
+  
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,

@@ -9,14 +9,19 @@
  -->	<!-- <div class = "col-md-8 col-md-offset-3"> -->
 			<div class="panel-body">	
 				<h1> <%= @pin.title %> </h1>
-				<p class ="description"> <%= @pin.description %> </p>
+				<p class ="description"><%= @pin.description %></p>
 	<!-- 			<p> Submitted by: <%= @pin.user.email %> </p>
 	 -->	</div>
 
 			<div class = "panel-footer">
 				<div class = "row">	
 					<div class="col-md-6">
-						<p class ="user">Submitted by: <i><%= @pin.user.email %> </i></p>
+						<p class ="user">Submitted by: 
+							<% if @pin.user.username == nil%>
+								<%= @pin.user.email %>
+							<% else %>
+								<%= @pin.user.username%>
+							<% end %> </p>
 					</div>
 				
 
