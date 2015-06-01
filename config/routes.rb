@@ -4,6 +4,7 @@ resources :pins do
   member do
   put "like", to: "pins#upvote"
   end
+  resources :comments
 end
 
 root "pins#index"

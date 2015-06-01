@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+# ActiveRecord model to Follow, Like and/or Mention any other model.
+gem "socialization"
 # aws location for paperclip
 gem 'aws-sdk'
 #ability to like photos,posts,etc

@@ -34,8 +34,14 @@
 							                <li role="presentation"><%= link_to "Account Settings", edit_user_registration_path %></li>
 							                <li role="presentation"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 									   </ul>
+										   <% if current_user.avatar != nil%>
+										   		<li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+										   <% else %>
+										   		<%= current_user.username %>
+										   <%end%>
 								</li>
 						</ul>
+
 
 					<% else %>
 						<ul class = "nav navbar-nav navbar-right">
