@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-
+#wrapper for elastic search
+gem 'searchkick'
+# search
+# gem 'elasticsearch-model'
+# gem 'elasticsearch-rails'
 # ActiveRecord model to Follow, Like and/or Mention any other model.
 gem "socialization"
 # aws location for paperclip

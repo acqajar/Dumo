@@ -1,0 +1,19 @@
+<div class="row">
+  <% @pins.each do |pin| %>
+    <div class="col-sm-6 col-md-offset-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag pin.image.url(:medium), class: 'image'), pin %>
+        <div class = "col-sm- col-md-offset-5">
+        	<h2><%= link_to pin.title, pin %></h2>
+			<p class="user">Submitted by: 
+				<% if pin.user.username == nil%>
+					<%= pin.user.email %>
+				<% else %>
+					<%= pin.user.username%>
+				<% end %>
+			</p>
+     	</div>
+  <% end %>
+   </div>
+</div>	
+</div>

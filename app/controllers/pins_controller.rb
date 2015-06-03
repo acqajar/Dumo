@@ -3,7 +3,17 @@ class PinsController < ApplicationController
 	
 	before_action :authenticate_user!, except: [:index, :show]
 
+	def search
+		if params[:search].present?
+			@pins = Pin.search(params[:search])
+		else
+			@pins = Pin.all
+		end
+	end
+
 	def show
+		# @comments = Comment.where(pin_id: @pin)
+		@random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
 	end
 
 	def index
@@ -31,8 +41,6 @@ class PinsController < ApplicationController
 
 	def edit
 	end
-
-
 
 
 	def update

@@ -36,11 +36,13 @@ class CommentsController < ApplicationController
 
   def create
     @pin = Pin.find(params[:pin_id])
-    @comment = @pin.comments.create(comment_params)
-    @comment.user_id = current_user.id #or whatever is you session name
+    @comment = Comment.create(params[:comment].permit(:content))
+    @comment.user_id = current_user.id
+    @comment.pin_id = @pin.id
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @pin, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @pin_path, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

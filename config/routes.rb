@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
+
+
 resources :pins do
-  member do
-  put "like", to: "pins#upvote"
+  collection do
+    get "search"
   end
+    member do
+      put "like", to: "pins#upvote"
+    end
   resources :comments
 end
+
 
 root "pins#index"
 #pins controller and index action
