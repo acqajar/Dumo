@@ -79,12 +79,11 @@ Rails.application.configure do
 
 
   config.paperclip_defaults = {
-    :storage => :fog,
-     :fog_credentials => {
+    :storage => :s3,
+     :s3_credentials => {
         :provider => "AWS",
         :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'],
         :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       },
-      :fog_directory => ENV["RAILS-MEMENTO"]
-    }
+  }
 end
