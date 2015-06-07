@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-
+gem 'figaro'
 gem 'fog'
 #wrapper for elastic search
 gem 'searchkick'

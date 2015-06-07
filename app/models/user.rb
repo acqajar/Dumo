@@ -27,16 +27,16 @@ class User < ActiveRecord::Base
   
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
-        :default_url => "/images/:style/missing.png"
+        :default_url => "/images/:style/missing.png",
         :url  => ":s3_domain_url",
         :path => "public/avatars/:id/:style_:basename.:extension",
         :storage => :fog,
         :fog_credentials => {
             provider: 'AWS',
-            aws_access_key_id: "AKIAIRPKLJNSDO23425",
-            aws_secret_access_key: "9LXV/GWagu/CJ4DoMLKSmdasdaZeUyuax/Ei92hL7"
+            aws_access_key_id: "AKIAI7XDYHJYMOIS6NIA",
+            aws_secret_access_key: "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"
         },
-        fog_directory: "memento-env"
+        fog_directory: "rails-memento-env"
 
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
