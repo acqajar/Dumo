@@ -3,6 +3,10 @@ class PinsController < ApplicationController
 	
 	before_action :authenticate_user!, except: [:index, :show]
 
+	def autocomplete
+    	render json: Pin.search(params[:query], autocomplete: true, limit: 10).map(&:title)
+  	end
+
 	def search
 		if params[:search].present?
 			@pins = Pin.search(params[:search])

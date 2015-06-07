@@ -5,6 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="assets/typeahead.js"></script>
+  <script>
+	  $("#query").typeahead({
+	    name: "title",
+	    remote: "/title/autocomplete?query=%QUERY"
+	  });
+  </script>
 </head>
 <body>
 
@@ -39,20 +46,30 @@
 										   		<%end%>
 								</li></a>
 						</ul>
-					<% else %>
-						<ul class = "nav navbar-nav navbar-right">
-							<li role="presentation"> <%= link_to "Sign Up", new_user_registration_path %></li>
-							<li role="presentation"> <%= link_to "Sign In", new_user_session_path %> </li>
-						</ul>
-					<% end %>
+							<% else %>
+							<ul class = "nav navbar-nav navbar-right">
+								<li role="presentation"> <%= link_to "Sign Up", new_user_registration_path %></li>
+								<li role="presentation"> <%= link_to "Sign In", new_user_session_path %> </li>
+							</ul>
+						<% end %>
+
+								<!-- Search the pins model -->
+							<%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+				          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Pin Name" %>
+						          <%= text_field_tag :username, params[:user_id], class: "form-control", placeholder: "Username" %> 
+						          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+					    <% end %>	
+						</div>				
+					</div>
 
 
-					<%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+				    		<!-- Search the users model -->
+					<!-- < form_tag search_users_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
 						<p>
 				          <%= text_field_tag :search, params[:search], class: "form-control" %>
 				          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
 				        </p>
-				    <% end %>
+				    <%  %> -->
 
 					<!-- <form class  = "navbar-form navbar right" role = "search">
 							<div class = "form-group">

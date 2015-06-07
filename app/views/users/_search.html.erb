@@ -1,0 +1,27 @@
+<div class="row">
+<% @users.each do |u| %>
+	    <div class="col-sm-6 col-md-offset-3">
+	    	<% if u.avatar != nil %>
+	    		<%= u.avatar, u %>
+	    		<%= u.username, u%>
+	    	<% else %>
+	    		<%= u.username, u %>
+	    	<% end %>
+			    <%if u.pin != nil%>
+				      <div class="thumbnail">
+				        <%= link_to (image_tag u.pin.image.url(:medium), class: 'image'), u %>
+				        <div class = "col-sm- col-md-offset-5">
+				        	<h2><%= link_to u.pin.title, u %></h2>
+							<p class="user">Submitted by: 
+								<% if user.username == nil%>
+									<%= user.email %>
+								<% else %>
+									<%= user.username%>
+								<% end %>
+							</p>
+				     	</div>
+				<% end %>
+		<% end %>
+</div>
+</div>	
+</div>
