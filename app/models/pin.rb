@@ -13,7 +13,7 @@ class Pin < ActiveRecord::Base
 
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
 	 :default_url => "/images/:style/missing.png",
-        :url  => ":s3_domain_url",
+        :url  => "s3.amazonaws.com/rails-memento-production",
         :path => "public/avatars/:id/:style_:basename.:extension",
         :storage => :fog,
         :fog_credentials => {
