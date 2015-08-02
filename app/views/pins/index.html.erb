@@ -1,10 +1,16 @@
 <!-- <h1>this is the index placeholder <h1> -->
+<div class = "container">
 <div class = "col-md-offset-0">
 	<div id="pins" class="transitions-enabled infinite scroll centered clearfix">
 		<!-- list out all PINS -->
 			<% @pins.each do |pin| %>
 				<div class="box panel panel-default">
-						<%= link_to (image_tag pin.image.url), pin %>
+
+
+
+					
+						<%= link_to (image_tag pin.image.url), pin %> 
+
 						<h2><%= link_to pin.title, pin %></h2>
 						
 						<p class="user">Submitted by: 
@@ -14,10 +20,21 @@
 								<%= pin.user.username%>
 							<% end %>
 							<div class ="btn-group pull-right">
-								<span class = "glyphicon glyphicon-heart"><%= pin.get_upvotes.size%>
+								<span>
+					              <i class="fa fa-comments-o"></i>
+					              <%= pin.comments.count %>
+					            </span>
+					            <span>
+					              <i class="fa fa-thumbs-o-up"></i>
+					              <%= pin.get_likes.size %>
+					            </span>
 							</div>
 						</p>
 				</div>
 			<% end %>
 	</div>
 </div>
+</div>
+
+
+

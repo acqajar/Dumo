@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'user/index'
+
+  get 'user/show'
+
+  get 'user/profile'
+
   devise_for :users
+  resources :users
 
 
 resources :pins do
@@ -7,13 +14,23 @@ resources :pins do
     get "search"
   end
     member do
-      put "like", to: "pins#upvote"
-    end
+        get 'like', to: 'posts#upvote'
+        get 'dislike', to: 'posts#downvote'
+      end
   resources :comments
 end
 
 
 root "pins#index"
+
+
+
+get 'profile', to: 'users#profile'
+
+
+
+
+
 #pins controller and index action
 
   # The priority is based upon order of creation: first created -> highest priority.

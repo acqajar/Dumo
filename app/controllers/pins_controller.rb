@@ -12,14 +12,16 @@ class PinsController < ApplicationController
 	end
 
 	def show
-		# @comments = Comment.where(pin_id: @pin)
-		@random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
-	end
+    	@comments = Comment.where(pin_id: @pin)
+  	end
 
 	def index
 		#put newest first
 		@pins = Pin.all.order("created_at DESC")	
 	end
+
+
+
 
 	def create
 		#have each pin assigned to current_user
@@ -63,6 +65,11 @@ class PinsController < ApplicationController
 		@pin.upvote_by current_user
 		redirect_to :back
 	end
+
+	def downvote
+	    @pin.downvotevote_by current_user
+	    redirect_to :back
+ 	end
 
 
 	private

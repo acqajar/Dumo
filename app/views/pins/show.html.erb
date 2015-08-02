@@ -3,18 +3,55 @@
 <div class="col-md-offset-2 col-md-8">
 	<div class="panel panel-default">
 		<div class="panel-heading pin_image">
-<!-- 			<div class= "pin_image">
- -->				<%= link_to image_tag(@pin.image.url) %>
-<!-- 			</div>
- -->	<!-- <div class = "col-md-8 col-md-offset-3"> -->
+
+
+ 					<%= link_to image_tag(@pin.image.url) %>
+ 					<%= time_ago_in_words(@pin.created_at) %>
+
+
+
+
+
+
 			<div class="panel-body">	
 				<h1> <%= @pin.title %> </h1>
 				<p class ="description"><%= @pin.description %></p>
-	<!-- 			<p> Submitted by: <%= @pin.user.email %> </p>
-	 -->	</div>
+				
+				<h2><%= pluralize(@pin.comments.count, "comment") %></h2>
+				
+				<% @comments.each do |comment| %>
+				<div class="comment-wrap">
+					<div class="photo">
+						<div class="avatar">
+							<% if current_user.avatar != nil%>
+							<ul class="list-unstyled">
+								<li class="image-comment"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+							</ul>
+							<%end%>
+						</div>
+					</div>
+					<div class="comment-block">
+						<p class="comment-text"> <%= comment.content %> </p>
+						<div class="bottom-comment">
+								<div class="comment-date"><%= time_ago_in_words(comment.created_at) %></div>
+								<br> Submitted by: <%= comment.user.username %>	
+						</div>
+					</div>
+				</div>
+				
+				<%end%>	
+				<%= render 'comments/form' %>
+			</div>
 
-			<div class = "panel-footer">
-				<div class = "row">	
+
+
+
+
+
+
+
+		<div class = "panel-footer">
+			<div class = "row">	
 					<div class="col-md-6">
 						<p class ="user">Submitted by: 
 							<% if @pin.user.username == nil%>
@@ -27,17 +64,23 @@
 
 
 <!-- < link_to 'Back', root_path %> -->
-	<div class="col-md-6">
-		<div class ="btn-group pull-right">
-			<%= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do %>
-				<span class = "glyphicon glyphicon-heart"><%= @pin.get_upvotes.size %>
-			<% end %>
-			<% if user_signed_in? %>
-			<%= link_to 'Edit', edit_pin_path, class: "btn btn-default"  %> 
-			<%= link_to 'Delete', pin_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default"%>
-			<% end %>
+		<div class="col-md-6">
+			<div class ="btn-group pull-right">
+				<%= link_to like_pin_path(@pin), method: :get, class: "btn btn-default" do %>
+					<i class="fa fa-thumbs-o-up "></i><%= pluralize(@pin.get_upvotes.size, " Like") %>
+				<% end %>
+				<%= link_to dislike_pin_path(@pin), method: :get, class: "btn btn-default" do %>
+					<i class="fa fa-thumbs-o-down "></i><%= pluralize(@pin.get_downvotes.size, " Dislike") %>
+				<%end%>	
+
+
+				<% if @pin.user == current_user %>
+				<%= link_to 'Edit', edit_pin_path, class: "btn btn-default"  %> 
+				<%= link_to 'Delete', pin_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default"%>
+				<% end %>
+			</div>
 		</div>
-	</div>
+
 </div>
 	</div>
 		</div>
@@ -46,4 +89,8 @@
 								</div>
 
 
-<!-- </div>
+
+
+
+
+
