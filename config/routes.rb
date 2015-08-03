@@ -5,8 +5,14 @@ Rails.application.routes.draw do
 
   get 'user/profile'
 
+
+
   devise_for :users
-  resources :users
+  resources :users do
+    post 'follow',   to: 'socializations#follow'
+    post 'unfollow', to: 'socializations#unfollow'
+  end
+
 
 
 resources :pins do

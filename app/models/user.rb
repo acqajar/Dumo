@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
 
+  acts_as_follower
+  acts_as_followable
+  acts_as_mentionable
+  acts_as_mentioner
+
   searchkick
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

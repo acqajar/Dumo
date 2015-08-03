@@ -37,13 +37,30 @@ a {
 .profile-user-page .img-user-profile .avatar {
 	margin: 0 auto;
   background: #fff;
-  width: 8em;
+  width: 7em;
   height: 7em;
   padding: 0.25em;
   border-radius: .4em;
   margin-top: -10em;
   box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
 }
+
+.editbutton{
+  position:absolute; 
+  margin-top: 1px;
+  margin-left: 305px;
+  z-index: 2;
+  opacity:0;
+}
+
+.editbutton:hover {
+  opacity:1;
+}
+
+.profile-user-page .img-user-profile .avatar:hover {
+  opacity:1;
+}
+
 .profile-user-page button {
 	position: absolute;
   font-size: 13px;

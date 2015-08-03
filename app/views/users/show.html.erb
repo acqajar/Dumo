@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 
 <div class="content-profile-page">
@@ -9,11 +8,23 @@
    	<!-- Profile image and Background photo -->
     <div class="img-user-profile">
         <img class="profile-bgHome" src="http://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg" />
-        <% if @user.avatar != nil%>
-        <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
-        <% else %>
-        <img src = "../../assets/gravatar.jpg" class = "avatar">
+
+        
+        <%= link_to(edit_user_registration_path) do %>
+        <i class="fa fa-pencil-square-o editbutton" style = "position:absolute; margin-top: -103px; margin-left: 79px;"></i>
+
+          <% if @user.avatar != nil%>
+
+          <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
+          
+
+
+          <% else %>
+          <img src = "../../assets/gravatar.jpg" class = "avatar">
+          <% end %>
+
         <% end %>
+        
      </div>
 
 
@@ -35,7 +46,7 @@
             <h1> </h1>
             <p> <%= @user.tagline%> </p>
           </div> 
-          <div class="description-profile"> <%= @user.content %> </div>
+          <div class="description-profile"> <%= @user.content %> </div> <br>
 
 
 
