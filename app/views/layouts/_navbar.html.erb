@@ -15,7 +15,7 @@
  					<% if user_signed_in? %>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class = "nav navbar-nav navbar-right navtitle">
-								<li><%= link_to "New Meme", new_pin_path, class: "navtitle" %></li>
+								<li><%= link_to "New Post", new_pin_path, class: "navtitle" %></li>
 								
 								<li class ="dropdown pull-right">
 									<a href="#" data-toggle="dropdown" class="dropdown-toggle" role="button" arai-expanded="false"><%=current_user.username%> <b class="caret"></b>
@@ -37,6 +37,8 @@
 					<% end %>
 
 
+
+					<!--  SEARCH for Memes -->
 					<%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
 						<p>
 				          <%= text_field_tag :search, params[:search], placeholder: 'Search a Memento', class: "form-control" %>
@@ -53,5 +55,7 @@
 			</div>	
 
 
-
-	</nav>
+</div>
+</div>
+</div>
+</nav>

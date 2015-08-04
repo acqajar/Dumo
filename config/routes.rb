@@ -20,8 +20,8 @@ resources :pins do
     get "search"
   end
     member do
-        get 'like', to: 'posts#upvote'
-        get 'dislike', to: 'posts#downvote'
+        get 'like', to: 'pins#upvote'
+        get 'dislike', to: 'pins#downvote'
       end
   resources :comments
 end

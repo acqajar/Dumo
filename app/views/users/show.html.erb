@@ -6,34 +6,51 @@
 
    <div class="profile-user-page card">
    	<!-- Profile image and Background photo -->
-    <%= link_to(edit_user_registration_path) do %>
+  <% if @user == current_user %>  
+      <%= link_to(edit_user_registration_path) do %>
+        <div class="img-user-profile">
+
+      <!-- Background photos -->
+            <% if @user.bgphoto.present? %>
+              <%= image_tag(@user.bgphoto.url(:normal), class: "profile-bgHome") %>
+            <% else %>
+                <img class="profile-bgHome" src="https://download.unsplash.com/reserve/AXx3QORhRDKAMrbb8pX4_photo%202.JPG" />
+            <% end %>
+               <i class="fa fa-pencil-square-o" style = "position:absolute;"></i>
+
+
+
+      <!-- Avatar photos -->
+            <% if @user.avatar.present?%>
+                <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
+            <% else %>
+                <img src = "../../assets/gravatar.jpg" class = "avatar">
+            <% end %>
+
+      <% end %>
+          
+       </div>
+
        
-
-
-
-      <div class="img-user-profile">
-
+  <% else %>
     <!-- Background photos -->
-        <% if @user.bgphoto.present? %>
-          <%= image_tag(@user.bgphoto.url(:normal), class: "profile-bgHome") %>
-        <% else %>
-            <img class="profile-bgHome" src="https://download.unsplash.com/reserve/AXx3QORhRDKAMrbb8pX4_photo%202.JPG" />
-        <% end %>
-           <i class="fa fa-pencil-square-o" style = "position:absolute;"></i>
+          <% if @user.bgphoto.present? %>
+            <%= image_tag(@user.bgphoto.url(:normal), class: "profile-bgHome") %>
+          <% else %>
+              <img class="profile-bgHome" src="https://download.unsplash.com/reserve/AXx3QORhRDKAMrbb8pX4_photo%202.JPG" />
+          <% end %>
+             <i class="fa fa-pencil-square-o" style = "position:absolute;"></i>
 
 
 
     <!-- Avatar photos -->
-        <% if @user.avatar.present?%>
-            <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
-        <% else %>
-            <img src = "../../assets/gravatar.jpg" class = "avatar">
-        <% end %>
+          <% if @user.avatar.present?%>
+              <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
+          <% else %>
+              <img src = "../../assets/gravatar.jpg" class = "avatar">
+          <% end %>
 
-    <% end %>
-        
-     </div>
-
+  <% end %>
 
 
 
