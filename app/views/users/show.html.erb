@@ -64,11 +64,18 @@
               </p>
           </div> 
 
+
+
           <div class="description-profile"> 
-            <%= @user.content %> 
-              <% unless current_user == @user %> 
-                <%= link_to 'Edit', edit_user_path(@user) %> 
-              <% end %> 
+            <% if @user.content.present?%>
+                <%= @user.content%> 
+            <% else %>
+                <% if @user == current_user %>
+                    <%= link_to "Write Something", edit_user_path(@user)%>
+                <% else %>
+                    No content yet...
+                <% end %>
+            <% end %> 
           </div> 
           <br>
 
