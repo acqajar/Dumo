@@ -15,8 +15,8 @@
  					<% if user_signed_in? %>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class = "nav navbar-nav navbar-right navtitle">
+							<li><%= link_to "Peeps", users_path, class: "navtitle" %></li>
 								<li><%= link_to "New Post", new_pin_path, class: "navtitle" %></li>
-								
 								<li class ="dropdown pull-right">
 									<a href="#" data-toggle="dropdown" class="dropdown-toggle" role="button" arai-expanded="false"><%=current_user.username%> <b class="caret"></b>
 							            <ul class="dropdown-menu">
@@ -31,8 +31,10 @@
 						</ul>
 					<% else %>
 						<ul class = "nav navbar-nav navbar-right navtitle">
+							<li><%= link_to "Peeps", users_path, class: "navtitle" %></li>
 							<li role="presentation"> <%= link_to "Sign Up", new_user_registration_path %></li>
 							<li role="presentation"> <%= link_to "Sign In", new_user_session_path %> </li>
+
 						</ul>
 					<% end %>
 

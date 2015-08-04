@@ -23,9 +23,9 @@
 
   <!-- BACK FACE -->
     <div class="back face">
-      <h5> <%= user.username %> </h5>
+      <h4> <%= user.username %> </h4>
       <% if user.content.present? %>
-        <p><%= user.content %></p>
+        <p><%= user.content.first(70) + "..." %></p>
       <% else %>
       <p> <%= "Woops. Nothing here." %>
         <% end %>
