@@ -28,6 +28,16 @@ body {
 	background: #E9E9E9;
 }
 
+
+.navtitle {
+	color: white;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+	letter-spacing:0.1em;
+	text-transform: lowercase;
+	font-size: 14pt;
+	font-variant: small-caps;
+}
+
 .round-image-50 {
     background-color: white;
     border: 1px solid #d9d9d9;
@@ -36,6 +46,7 @@ body {
     -webkit-border-radius: 25px;
     height: 50px;
     width: 50px;
+    margin-top: 4px;
     overflow: hidden;
     text-align: center;
     img { width: 100% }
