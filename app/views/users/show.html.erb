@@ -6,24 +6,31 @@
 
    <div class="profile-user-page card">
    	<!-- Profile image and Background photo -->
-    <div class="img-user-profile">
-        <img class="profile-bgHome" src="http://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg" />
-
-        
-        <%= link_to(edit_user_registration_path) do %>
-        <i class="fa fa-pencil-square-o editbutton" style = "position:absolute; margin-top: -103px; margin-left: 79px;"></i>
-
-          <% if @user.avatar != nil%>
-
-          <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
-          
+    <%= link_to(edit_user_registration_path) do %>
+       
 
 
-          <% else %>
-          <img src = "../../assets/gravatar.jpg" class = "avatar">
-          <% end %>
 
+      <div class="img-user-profile">
+
+    <!-- Background photos -->
+        <% if @user.bgphoto.present? %>
+          <%= image_tag(@user.bgphoto.url(:normal), class: "profile-bgHome") %>
+        <% else %>
+            <img class="profile-bgHome" src="https://download.unsplash.com/reserve/AXx3QORhRDKAMrbb8pX4_photo%202.JPG" />
         <% end %>
+           <i class="fa fa-pencil-square-o" style = "position:absolute;"></i>
+
+
+
+    <!-- Avatar photos -->
+        <% if @user.avatar.present?%>
+            <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
+        <% else %>
+            <img src = "../../assets/gravatar.jpg" class = "avatar">
+        <% end %>
+
+    <% end %>
         
      </div>
 
@@ -32,7 +39,7 @@
 
 
      <!-- Follower user -->
-     <% unless @user = current_user %>
+     <% unless @user == current_user %>
           <button>Follow</button>
      <% end %>
 
@@ -44,9 +51,27 @@
           <br>
           <div class="user-profile-data">
             <h1> </h1>
-            <p> <%= @user.tagline%> </p>
+            <p> 
+              <% if @user.tagline.present?%>
+                <%= @user.tagline%> 
+              <% else %>
+                <% if @user == current_user %>
+                  <%= link_to "Write Something", edit_user_path(@user)%>
+                <% else %>
+                  Nothing to See!
+                <% end %>
+              <% end %> 
+              </p>
           </div> 
-          <div class="description-profile"> <%= @user.content %> </div> <br>
+
+          <div class="description-profile"> 
+            <%= @user.content %> 
+              <% unless current_user == @user %> 
+                <%= link_to 'Edit', edit_user_path(@user) %> 
+              <% end %> 
+          </div> 
+          <br>
+
 
 
 
@@ -61,5 +86,10 @@
     </div>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+
+
+
+<div class =" col-md-4 col-md-offset-6">
 <%= link_to 'Back', users_path %>
+</div>
+

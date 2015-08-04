@@ -3,27 +3,31 @@
 
 <div class ="container">
 
-<h1>Listing Users</h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New User', new_user_path %>
+
+
+<% @users.each do |user| %>
+<%= link_to user do %>
+<div class="flip-container" id="dean">
+    <div class="flip-card">
+      <!-- FRONT FACE -->
+    <div class="front face">
+      <% if user.avatar.present?%>
+          <%= image_tag(user.avatar, class: "indexprofileimg") %>
+      <% else %>
+         <img src = "../../assets/gravatar.jpg" class = "indexprofileimg">
+      <% end %>
+    </div>
+
+  <!-- BACK FACE -->
+    <div class="back face">
+      <h5> <%= user.username %> </h5>
+      <p><%= user.content %></p>
+    </div>
+
+  </div>
 </div>
+<% end %>
+<% end %>

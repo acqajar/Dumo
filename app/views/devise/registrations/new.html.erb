@@ -13,6 +13,11 @@
 				    <%= f.file_field :avatar %>
 				  </div>
 
+				  <div class = "form-group">
+				    <%= f.label :bgphoto, input_html: { class: 'form-control' }, placeholder: 'Choose a background photo' %>
+				    <%= f.file_field :bgphoto %>
+				  </div>
+
 				  <div class="form-group">
   					<%= f.label :username, required: true, autofocus: true %>
 				  	<%= f.text_field :username, class: "form-control" %>
