@@ -1,18 +1,18 @@
 <!-- <h1>this is the index placeholder <h1> -->
-<div class = "container">
-<div class = "col-md-offset-0">
-	<div id="pins" class="transitions-enabled infinite scroll centered clearfix">
+<!-- <div class = "container">
+<div class = "col-md-offset-0"> -->
 		<!-- list out all PINS -->
 			<% @pins.each do |pin| %>
+	<div id="pins" class="transitions-enabled infinite scroll centered clearfix">
+
+
 				<div class="box panel panel-default">
-
-
 
 					
 						<%= link_to (image_tag pin.image.url), pin %> 
 
 						<h2><%= link_to pin.title, pin %></h2>
-						<h5><%= pin.description.first(120) %></h5>
+						<h4><%= pin.description.first(120) %></h4>
 						
 						<p class="user">Submitted by: 
 							<% if pin.user.username == nil%>
@@ -32,10 +32,14 @@
 							</div>
 						</p>
 				</div>
-			<% end %>
-	</div>
+				<% end %> 
+
 </div>
-</div>
+
+			
+	
+<!-- </div>
+</div> -->
 
 
 
