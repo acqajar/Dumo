@@ -5,8 +5,7 @@ class Pin < ActiveRecord::Base
 	
 	belongs_to :user
 
-  	acts_as_mentioner
-  	acts_as_likeable
+  	
 
 	has_many :comments, dependent: :destroy
 

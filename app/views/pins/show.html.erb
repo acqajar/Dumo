@@ -23,9 +23,9 @@
 				<div class="comment-wrap">
 					<div class="photo">
 						<div class="avatar">
-							<% if current_user.avatar != nil%>
+							<% if comment.user.avatar != nil%>
 							<ul class="list-unstyled">
-								<li class="image-comment"><%= link_to image_tag(current_user.avatar.url(:thumb)), comment.user %></li>
+								<li class="image-comment"><%= link_to image_tag(comment.user.avatar.url(:thumb)), comment.user %></li>
 							</ul>
 							<%end%>
 						</div>

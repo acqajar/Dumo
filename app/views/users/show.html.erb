@@ -4,60 +4,50 @@
 	
 
 
-   <div class="profile-user-page card">
+  <div class="profile-user-page card">
+    <div class="img-user-profile">
    	<!-- Profile image and Background photo -->
-  <% if @user == current_user %>  
-      <%= link_to(edit_user_registration_path) do %>
-        <div class="img-user-profile">
+      <% if @user == current_user %>  
+        <%= link_to(edit_user_registration_path) do %>
+        <!-- BACKGROUND photos -->
+              <% if current_user.bgphoto.present? %>
+                <%= image_tag(current_user.bgphoto.url(:normal), class: "profile-bgHome") %>
+              <% else %>
+                  <img class="profile-bgHome" src="https://download.unsplash.com/34/ddTzoX58Q153kjaitXl4_ny.jpg" style = "width:100%" />
+              <% end %>
 
-      <!-- Background photos -->
+        <!-- AVATAR photos -->
+              <% if @user.avatar.present?%>
+                  <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
+              <% else %>
+                  <img src = "../../assets/gravatar.jpg" class = "avatar"/>
+              <% end %>
+
+        <% end %>   
+
+ <!-- NOT CURRENT USER -->
+    <% else %>
+      <!-- BACKGROUND photos -->
             <% if @user.bgphoto.present? %>
               <%= image_tag(@user.bgphoto.url(:normal), class: "profile-bgHome") %>
             <% else %>
-                <img class="profile-bgHome" src="https://download.unsplash.com/reserve/AXx3QORhRDKAMrbb8pX4_photo%202.JPG" />
+                <img class="profile-bgHome" src="https://download.unsplash.com/34/ddTzoX58Q153kjaitXl4_ny.jpg" style = "width:100%" />
             <% end %>
-               <i class="fa fa-pencil-square-o" style = "position:absolute;"></i>
-
-
-
-      <!-- Avatar photos -->
+      <!-- AVATAR photos -->
             <% if @user.avatar.present?%>
                 <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
             <% else %>
                 <img src = "../../assets/gravatar.jpg" class = "avatar">
             <% end %>
-
-      <% end %>
-          
-       </div>
-
-
-  <% else %>
-    <!-- Background photos -->
-          <% if @user.bgphoto.present? %>
-            <%= image_tag(@user.bgphoto.url(:normal), class: "profile-bgHome") %>
-          <% else %>
-              <img class="profile-bgHome" src="https://download.unsplash.com/reserve/AXx3QORhRDKAMrbb8pX4_photo%202.JPG" />
-          <% end %>
-             <i class="fa fa-pencil-square-o" style = "position:absolute;"></i>
-
-
-
-    <!-- Avatar photos -->
-          <% if @user.avatar.present?%>
-              <%= image_tag(@user.avatar.url(:thumb), class: "avatar") %>
-          <% else %>
-              <img src = "../../assets/gravatar.jpg" class = "avatar">
-          <% end %>
-
-  <% end %>
-
+    <% end %>
+  </div>
 
 
 
      <!-- Follower user -->
+
      <% unless @user == current_user %>
-          <button>Follow</button>
+          <%= render 'follow_form' if current_user != nil %>
      <% end %>
 
 
@@ -104,25 +94,31 @@
        <ul class="data-user">
         <li><a><strong><%= @user.pins.count %></strong><span>Memes</span></a></li>
         <li><a><strong><%= @user.comments.count %></strong><span>Comments</span></a></li>
-        <li><a><strong> 500 </strong><span>Following</span></a></li>
+        <li><a><strong> <%= @user.following.count %> / <%= @user.followers.count %> </strong><span>Following/Followers</span></a></li>
+
        </ul>
       </div>
-    </div>
-</div>
+  </div>
 
 
 
-  <!-- need to iterate... -->
+  <!-- User Posts' Images -->
 <div class = "container">  
-  <div class ="col-md-6 col-md-offset-5">
-    <h1> <b>Dumo of the day<b> </h1>
+  <div class ="col-md-6 col-md-offset-4">
+    <h1> <b>Your Posts on Dumo<b> </h1>
     <br>
   </div> 
-  <div class ="col-md-6 col-md-offset-6">
-      <% @user.pins.each do |pin|%>
-        <%= link_to (image_tag(pin.image.url(:thumb))), pin %>
+  <div class ="col-md-6 col-md-offset-5">
+    <% if @user.pins.present? %>
+        <% @user.pins.each do |pin|%>
+          <%= link_to (image_tag(pin.image.url(:thumb))), pin %>
+        <% end %>
+    <% else %>
+        <%= render 'pins/new_pin' %>
     <% end %>
   </div>
 </div>  
+
+
 
 

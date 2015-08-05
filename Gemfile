@@ -3,12 +3,7 @@ source 'https://rubygems.org'
 #wrapper for elastic search
 gem 'searchkick'
 # search
-# gem 'elasticsearch-model'
-# gem 'elasticsearch-rails'
-# ActiveRecord model to Follow, Like and/or Mention any other model.
-gem "socialization"
 # aws location for paperclip
-gem 'aws-sdk'
 #ability to like photos,posts,etc
 gem 'acts_as_votable', '~> 0.10.0'
 #shifting of images effect with screen resize

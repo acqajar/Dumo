@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :relationships
+
   get 'user/index'
 
   get 'user/show'
@@ -9,8 +11,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
-    post 'follow',   to: 'socializations#follow'
-    post 'unfollow', to: 'socializations#unfollow'
+    member do
+      # gets following and followers for a certain user
+      get :following, :followers
+    end
   end
 
 
@@ -36,6 +40,7 @@ get 'profile', to: 'users#profile'
 
 
 
+resources :relationships, only: [:create, :destroy]
 
 #pins controller and index action
 

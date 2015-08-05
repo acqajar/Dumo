@@ -26,7 +26,11 @@
 									   </ul>
 										   <% if current_user.avatar != nil%>
 										   		<li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
-										   		<%end%>
+
+										   	<% else %>
+
+										   		<li class = "round-image-50"><img src = "../../assets/gravatar.jpg"></li>
+										   	<%end%>
 								</li></a>
 						</ul>
 					<% else %>
@@ -57,7 +61,7 @@
 			</div>	
 
 
-</div>
+	</div>
 </div>
 </div>
 </nav>
