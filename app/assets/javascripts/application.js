@@ -20,3 +20,10 @@
 //= require masonry/modernizr-transitions
 //= require turbolinks
 //= require_tree .
+
+
+
+ $('#pins').imagesLoaded -
+    $('#pins').masonry
+      itemSelector: '.box'
+      isFitWidth: true
