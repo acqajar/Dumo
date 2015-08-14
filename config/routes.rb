@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :relationships
 
-  get 'user/index'
+  # get 'users/index'
 
-  get 'user/show'
+  # get 'users/show'
 
-  get 'user/profile'
+  # get 'users/profile'
 
 
 
