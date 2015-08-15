@@ -10,13 +10,16 @@ Rails.application.routes.draw do
 
 
 
+
   devise_for :users
+
   resources :users do
     member do
       # gets following and followers for a certain user
       get :following, :followers
     end
   end
+
 
 
 
