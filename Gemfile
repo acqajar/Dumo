@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'searchkick'
 
 
+gem 'bcrypt-ruby'
 
 # search
 # aws location for paperclip
