@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 #wrapper for elastic search
-gem 'searchkick'
+# gem 'searchkick'
+
+
+
 # search
 # aws location for paperclip
 #ability to like photos,posts,etc
