@@ -45,8 +45,6 @@ group :production do
 
  gem 'rails_12factor' 
 
- gem 'devise'   
-
 end
 
 # Use ActiveModel has_secure_password
