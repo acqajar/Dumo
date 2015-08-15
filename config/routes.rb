@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :relationships
 
-  # get 'users/index'
+  get 'users/index'
 
-  # get 'users/show'
+  get 'users/show'
 
   get 'users/profile'
 
