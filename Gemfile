@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #wrapper for elastic search
-gem 'searchkick'
+# gem 'searchkick'
 
 
 gem 'bcrypt-ruby'
