@@ -18,7 +18,7 @@
 							<% if pin.user.username == nil%>
 								<%= pin.user.email %>
 							<% else %>
-								<%= pin.user.username%>
+								<%= link_to pin.user.username, pin.user%>
 							<% end %>
 							<div class ="btn-group pull-right">
 								<span>
