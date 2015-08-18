@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+
+gem 'aws-sdk'
 #wrapper for elastic search
 # gem 'searchkick'
 
