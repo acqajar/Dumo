@@ -79,7 +79,7 @@ Rails.application.configure do
   config.assets.initialize_on_precompile = false
 
 
-
+# needed for paperclip s3 config & check user model and create paperclip.rb initializer
 config.paperclip_defaults = {
       :storage => :s3,
       :s3_protocol => :https,
@@ -88,7 +88,7 @@ config.paperclip_defaults = {
           :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
           :secret_access_key => ENV['AWS_ACCESS_SECRET_KEY']
       }
-      
+
 
   # config.paperclip_defaults = {
   # :storage => :s3,

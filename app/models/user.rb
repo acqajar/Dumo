@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   # end
 
   
-#avatar image
+#avatar image & add the s3 pclip
   has_attached_file :avatar, :styles => { :medium => "619x223>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png", :storage => :s3, :bucket => ENV['S3_BUCKET_NAME']
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
