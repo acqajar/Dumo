@@ -88,8 +88,7 @@ config.paperclip_defaults = {
           :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
           :secret_access_key => ENV['AWS_ACCESS_SECRET_KEY']
       }
-    :url =>':s3_domain_url',
-    :path => '/:class/:attachment/:id_partition/:style/:filename',
+      
 
   # config.paperclip_defaults = {
   # :storage => :s3,
