@@ -29,12 +29,12 @@ class User < ActiveRecord::Base
 
   
 #avatar image
-  has_attached_file :avatar, :styles => { :medium => "619x223>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png", :storage => :s3, :bucket => ENV['dumo-production']
+  has_attached_file :avatar, :styles => { :medium => "619x223>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png", :storage => :s3, :bucket => ENV['S3_BUCKET_NAME']
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
 # bgphoto image
-has_attached_file :bgphoto, :styles => { :normal => "718x237" }, :default_url => "/images/:style/missing.png", :storage => :s3, :bucket => ENV['dumo-production']
+has_attached_file :bgphoto, :styles => { :normal => "718x237" }, :default_url => "/images/:style/missing.png", :storage => :s3, :bucket => ENV['S3_BUCKET_NAME']
 validates_attachment_content_type :bgphoto, :content_type => /\Aimage\/.*\Z/
 
 
